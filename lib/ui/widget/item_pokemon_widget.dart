@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 class ItemPokemonWidget extends StatelessWidget {
   String name;
   String image;
+  List<String> types;
 
   ItemPokemonWidget({
     required this.name,
     required this.image,
+    required this.types,
   });
 
   @override
@@ -21,7 +23,11 @@ class ItemPokemonWidget extends StatelessWidget {
           Positioned(
             bottom: -20,
             right: -20,
-            child: Image.network(image),
+            child: Image.asset(
+              "assets/images/pokeball.png",
+              height: 120,
+              color: Colors.white.withOpacity(0.27),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(
@@ -68,7 +74,7 @@ class ItemPokemonWidget extends StatelessWidget {
             bottom: 0,
             right: 0,
             child: Image.network(
-              "http://www.serebii.net/pokemongo/pokemon/001.png",
+              image,
             ),
           ),
         ],
