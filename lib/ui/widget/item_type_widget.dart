@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 
 class ItemTypeWidget extends StatelessWidget {
   String text;
-  ItemTypeWidget({ required this.text });
+  ItemTypeWidget({required this.text});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 6),
+      margin: EdgeInsets.only(
+        bottom: 4,
+        right: 12,
+        top: 4,
+      ),
       padding: EdgeInsets.symmetric(
         horizontal: 14,
         vertical: 4,
