@@ -24,7 +24,7 @@ class ItemDataWidget extends StatelessWidget {
             ),
           ),
           Text(
-            data,
+            data
           ),
         ],
       ),

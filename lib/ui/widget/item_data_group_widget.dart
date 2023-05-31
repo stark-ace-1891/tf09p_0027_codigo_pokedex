@@ -3,11 +3,11 @@ import 'package:tf09p_0027_codigo_pokedex/ui/widget/item_data_group_item_widget.
 
 class ItemDataGroupWidget extends StatelessWidget {
   String title;
-  List<dynamic>? data;
+  List<dynamic> data;
 
   ItemDataGroupWidget({
     required this.title,
-    this.data,
+    required this.data,
   });
 
   @override
@@ -28,7 +28,7 @@ class ItemDataGroupWidget extends StatelessWidget {
               ),
             ),
             Row(
-              children: data!
+              children: data
                   .map((e) => ItemDataGroupItemWidget(
                         item: e,
                       ))

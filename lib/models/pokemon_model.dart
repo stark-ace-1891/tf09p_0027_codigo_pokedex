@@ -9,7 +9,7 @@ class PokemonModel {
   int? candyCount;
   List<dynamic>? multipliers;
   List<dynamic>? weaknesses;
-  // List<Map<String, dynamic>> nextEvolution;
+  List<String>? nextEvolution;
 
   PokemonModel({
     required this.name,
@@ -19,10 +19,10 @@ class PokemonModel {
     required this.height,
     required this.weight,
     required this.candy,
-    this.candyCount,
-    this.multipliers,
-    this.weaknesses,
-    // required this.nextEvolution,
+    required this.candyCount,
+    required this.multipliers,
+    required this.weaknesses,
+    required this.nextEvolution,
   });
 
   //constructor con nombre
@@ -34,9 +34,9 @@ class PokemonModel {
         height: json["height"],
         weight: json["weight"],
         candy: json["candy"],
-        candyCount: json["candy_count"],
-        multipliers: json["multipliers"],
-        weaknesses: json["weaknesses"],
-        // nextEvolution: json["next_evolution"],
+        candyCount: json["candy_count"] != null ? json["candy_count"] : null,
+        multipliers: json["multipliers"] != null ? List<double>.from(json["multipliers"].map((e) => e)) : null,
+        weaknesses: json["weaknesses"] != null ? List<String>.from(json["weaknesses"].map((e) => e)) : null,
+        nextEvolution: json["next_evolution"] != null ? List<String>.from(json["next_evolution"]!.map((e) => e["name"])) : null,
       );
 }

@@ -99,64 +99,89 @@ class DetailPage extends StatelessWidget {
                       //Data del pokemon
                       Padding(
                         padding: const EdgeInsets.all(35),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "About Pokemon",
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
+                        child: SingleChildScrollView(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "About Pokemon",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
-                            ),
-                            SizedBox(
-                              height: 12,
-                            ),
-                            ItemDataWidget(
-                              title: "Height",
-                              data: pokemon.height,
-                            ),
-                            SizedBox(
-                              height: 8,
-                            ),
-                            ItemDataWidget(
-                              title: "Weight",
-                              data: pokemon.weight,
-                            ),
-                            SizedBox(
-                              height: 8,
-                            ),
-                            ItemDataWidget(
-                              title: "Candy",
-                              data: pokemon.candy,
-                            ),
-                            SizedBox(
-                              height: 8,
-                            ),
-                            ItemDataWidget(
-                              title: "Candy Count",
-                              data: pokemon.candyCount.toString(),
-                            ),
-                            SizedBox(
-                              height: 8,
-                            ),
-                            ItemDataGroupWidget(
-                              title: "Multipliers",
-                              data: pokemon.multipliers,
-                            ),
-                            SizedBox(
-                              height: 8,
-                            ),
-                            ItemDataGroupWidget(
-                              title: "Weaknesses",
-                              data: pokemon.weaknesses,
-                            ),
-                            // ...pokemon.multipliers!
-                            //     .map((e) => ItemMultipliersWidget(
-                            //           text: e,
-                            //         ))
-                            //     .toList(),
-                          ],
+                              SizedBox(
+                                height: 12,
+                              ),
+                              ItemDataWidget(
+                                title: "Height",
+                                data: pokemon.height,
+                              ),
+                              SizedBox(
+                                height: 8,
+                              ),
+                              ItemDataWidget(
+                                title: "Weight",
+                                data: pokemon.weight,
+                              ),
+                              SizedBox(
+                                height: 8,
+                              ),
+                              ItemDataWidget(
+                                title: "Candy",
+                                data: pokemon.candy,
+                              ),
+                              SizedBox(
+                                height: 8,
+                              ),
+                              Visibility(
+                                visible: pokemon.candyCount != null,
+                                child: ItemDataWidget(
+                                  title: "Candy Count",
+                                  data: pokemon.candyCount.toString(),
+                                ),
+                              ),
+                              Visibility(
+                                visible: pokemon.multipliers != null,
+                                child: Column(
+                                  children: [
+                                    SizedBox(
+                                      height: 8,
+                                    ),
+                                    ItemDataGroupWidget(
+                                      title: "Multipliers",
+                                      data: pokemon.multipliers ?? [],
+                                    ),
+                                    SizedBox(
+                                      height: 8,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Visibility(
+                                visible: pokemon.weaknesses != null,
+                                child: ItemDataGroupWidget(
+                                  title: "Weaknesses",
+                                  data: pokemon.weaknesses ?? [],
+                                ),
+                              ),
+                              SizedBox(
+                                height: 8,
+                              ),
+                              Visibility(
+                                visible: pokemon.nextEvolution != null,
+                                child: ItemDataGroupWidget(
+                                  title: "Next Evolution",
+                                  data: pokemon.nextEvolution ?? [],
+                                ),
+                              ),
+                              // ...pokemon.multipliers!
+                              //     .map((e) => ItemMultipliersWidget(
+                              //           text: e,
+                              //         ))
+                              //     .toList(),
+                            ],
+                          ),
                         ),
                       ),
                       //Imagen del pokemon
