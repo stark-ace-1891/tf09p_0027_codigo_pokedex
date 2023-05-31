@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:tf09p_0027_codigo_pokedex/models/pokemon_model.dart';
 import 'package:tf09p_0027_codigo_pokedex/ui/widget/item_type_widget.dart';
 
 class ItemPokemonWidget extends StatelessWidget {
-  String name;
-  String image;
-  List<String> types;
+  // String name;
+  // String image;
+  // List<String> types;
+  PokemonModel pokemon;
 
   ItemPokemonWidget({
-    required this.name,
-    required this.image,
-    required this.types,
+    // required this.name,
+    // required this.image,
+    // required this.types,
+    required this.pokemon,
   });
 
   @override
@@ -39,7 +42,7 @@ class ItemPokemonWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  name,
+                  pokemon.name,
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 16,
@@ -49,7 +52,7 @@ class ItemPokemonWidget extends StatelessWidget {
                 //   children: types.map((e) => ItemTypeWidget()).toList(),
                 // ),
 
-                ...types.map((e) => ItemTypeWidget(text: e,)).toList(),
+                ...pokemon.type.map((e) => ItemTypeWidget(text: e,)).toList(),
               ],
             ),
           ),
@@ -57,7 +60,7 @@ class ItemPokemonWidget extends StatelessWidget {
             bottom: 0,
             right: 0,
             child: Image.network(
-              image,
+              pokemon.img,
             ),
           ),
         ],

@@ -29,7 +29,9 @@ class _HomePageState extends State<HomePage> {
       //response.body -> siempre es un String
       Map<String, dynamic> myMap = json.decode(response.body);
       // pokemons = myMap["pokemon"];
-      pokemonsModel = myMap["pokemon"].map<PokemonModel>((e) => PokemonModel.fromJson(e)).toList();
+      pokemonsModel = myMap["pokemon"]
+          .map<PokemonModel>((e) => PokemonModel.fromJson(e))
+          .toList();
       setState(() {});
 
       // pokemons.forEach((element) {
@@ -71,12 +73,13 @@ class _HomePageState extends State<HomePage> {
                   childAspectRatio: 1.35,
                   children: pokemonsModel.map(
                     (e) => ItemPokemonWidget(
-                      name: e.name,
-                      image: e.img,
-                      types: e.type,
+                      // name: e.name,
+                      // image: e.img,
+                      // types: e.type,
+                      pokemon: e,
                     ),
                   ).toList(),
-                )
+                ),
               ],
             ),
           ),
