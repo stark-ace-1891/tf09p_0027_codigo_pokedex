@@ -7,6 +7,9 @@ class PokemonModel {
   String weight;
   String candy;
   int? candyCount;
+  List<dynamic>? multipliers;
+  List<dynamic>? weaknesses;
+  // List<Map<String, dynamic>> nextEvolution;
 
   PokemonModel({
     required this.name,
@@ -17,6 +20,9 @@ class PokemonModel {
     required this.weight,
     required this.candy,
     this.candyCount,
+    this.multipliers,
+    this.weaknesses,
+    // required this.nextEvolution,
   });
 
   //constructor con nombre
@@ -29,5 +35,8 @@ class PokemonModel {
         weight: json["weight"],
         candy: json["candy"],
         candyCount: json["candy_count"],
+        multipliers: json["multipliers"],
+        weaknesses: json["weaknesses"],
+        // nextEvolution: json["next_evolution"],
       );
 }

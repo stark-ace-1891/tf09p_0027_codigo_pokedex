@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tf09p_0027_codigo_pokedex/models/pokemon_model.dart';
 import 'package:tf09p_0027_codigo_pokedex/ui/general/colors.dart';
+import 'package:tf09p_0027_codigo_pokedex/ui/widget/item_data_group_widget.dart';
 import 'package:tf09p_0027_codigo_pokedex/ui/widget/item_data_widget.dart';
 import 'package:tf09p_0027_codigo_pokedex/ui/widget/item_type_widget.dart';
 
@@ -58,7 +59,9 @@ class DetailPage extends StatelessWidget {
                       height: 6,
                     ),
                     Row(
-                      children: pokemon.type.map((e) => ItemTypeWidget(text: e)).toList(),
+                      children: pokemon.type
+                          .map((e) => ItemTypeWidget(text: e))
+                          .toList(),
                     ),
                   ],
                 ),
@@ -95,8 +98,9 @@ class DetailPage extends StatelessWidget {
                     children: [
                       //Data del pokemon
                       Padding(
-                        padding: const EdgeInsets.all(22),
+                        padding: const EdgeInsets.all(35),
                         child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
                               "About Pokemon",
@@ -105,22 +109,53 @@ class DetailPage extends StatelessWidget {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
+                            SizedBox(
+                              height: 12,
+                            ),
                             ItemDataWidget(
                               title: "Height",
                               data: pokemon.height,
+                            ),
+                            SizedBox(
+                              height: 8,
                             ),
                             ItemDataWidget(
                               title: "Weight",
                               data: pokemon.weight,
                             ),
+                            SizedBox(
+                              height: 8,
+                            ),
                             ItemDataWidget(
                               title: "Candy",
                               data: pokemon.candy,
+                            ),
+                            SizedBox(
+                              height: 8,
                             ),
                             ItemDataWidget(
                               title: "Candy Count",
                               data: pokemon.candyCount.toString(),
                             ),
+                            SizedBox(
+                              height: 8,
+                            ),
+                            ItemDataGroupWidget(
+                              title: "Multipliers",
+                              data: pokemon.multipliers,
+                            ),
+                            SizedBox(
+                              height: 8,
+                            ),
+                            ItemDataGroupWidget(
+                              title: "Weaknesses",
+                              data: pokemon.weaknesses,
+                            ),
+                            // ...pokemon.multipliers!
+                            //     .map((e) => ItemMultipliersWidget(
+                            //           text: e,
+                            //         ))
+                            //     .toList(),
                           ],
                         ),
                       ),
